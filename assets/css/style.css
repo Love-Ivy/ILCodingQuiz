@@ -26,12 +26,12 @@ header {
 section {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   border-radius: 5px;
-  border: 5px solid #eebbc3;
-  margin: 100px;
-  padding: 20px;
+  margin: 20px;
+  padding: 100px;
 }
 
 button {
@@ -46,11 +46,9 @@ button {
 }
 
 .answer {
-  width: 100%;
-  margin-left: 40%;
-  margin-right: 40%;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  width: 200px;
+  margin: 5px;
+  align-self: center;
 }
 
 .hidden {

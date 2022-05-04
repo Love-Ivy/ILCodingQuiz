@@ -1,66 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Timed Coding Quiz</title>
   </head>
   <body>
     <!-- View highscores, countdown timer in header -->
+    <header>
+      <p id="viewhighscores">View Highscores</p>
+      <p>Time remaining:</p>
+    </header>
     <!-- Title page and Instructions for quiz. -->
-    <!-- Start button -->
-
-    <!-- Create quiz pages. Numbered question and multiple choice answers -->
-    <!-- create end page, input for initials and submit button-->
-    <!-- Create high score page -->
-    <section class="questionPage">
-      <h2 class="question">Commonly used data types DO NOT include:</h2>
-      <button>strings</button>
-      <button>booleans</button>
-      <button>alerts</button>
-      <button>numbers</button>
+    <section id="startpage">
+      <h1>Coding Quiz!</h1>
+      <p>
+        Try to answer the following code-related questions within the time
+        limit. Keep in mind that incorrect answers will penalize your score/time
+        by ten seconds!
+      </p>
+      <button id="startbutton">Start Quiz!</button>
     </section>
-    <section class="questionPage">
+
+    <section class="questionPage hidden" id="Page1">
+      <h2 class="question">Commonly used data types DO NOT include:</h2>
+      <button class="answer">strings</button>
+      <button class="answer">booleans</button>
+      <button class="answer">alerts</button>
+      <button class="answer">numbers</button>
+    </section>
+
+    <section class="questionPage hidden" id="Page2">
       <h2 class="question">
         The condition in an if / else statement is enclosed within _____.
       </h2>
-      <button>quotes</button>
-      <button>curly brackets</button>
-      <button>parentheses</button>
-      <button>square brackets</button>
+      <button class="answer">quotes</button>
+      <button class="answer">curly brackets</button>
+      <button class="answer">parentheses</button>
+      <button class="answer">square brackets</button>
     </section>
-    <section class="questionPage">
+
+    <section class="hidden questionPage" id="Page3">
       <h2 class="question">Arrays in JavaScript can be used to store ____.</h2>
-      <button>numbers and strings</button>
-      <button>other arrays</button>
-      <button>booleans</button>
-      <button>all of the above</button>
+      <button class="answer">numbers and strings</button>
+      <button class="answer">other arrays</button>
+      <button class="answer">booleans</button>
+      <button class="answer">all of the above</button>
     </section>
-    <section class="questionPage">
+
+    <section class="questionPage hidden" id="Page4">
       <h2 class="question">
         String values must be enclosed within ____ when being assigned to
         variables.
       </h2>
-      <button>commas</button>
-      <button>curly brackets</button>
-      <button>quotes</button>
-      <button>parentheses</button>
+      <button class="answer">commas</button>
+      <button class="answer">curly brackets</button>
+      <button class="answer">quotes</button>
+      <button class="answer">parentheses</button>
     </section>
-    <section class="questionPage">
+
+    <section class="questionPage hidden" id="Page5">
       <h2 class="question">
         A very useful toolused during development and debugging for printing
         content to the debugger is:
       </h2>
-      <button>JavaScript</button>
-      <button>terminal / bash</button>
-      <button>for loops</button>
-      <button>console.log</button>
+      <button class="answer">JavaScript</button>
+      <button class="answer">terminal / bash</button>
+      <button class="answer">for loops</button>
+      <button class="answer">console.log</button>
     </section>
-    <section id="scorePage">
+
+    <section class="hidden" id="scorePage">
       <h2>Finished!</h2>
+      <!-- Final score -->
       <label for="initialsinput">Enter initials: </label>
       <input type="text" id="initialsinput" name="initialsinput" />
     </section>
+
+    <section class="hidden" id="highscores">
+      <h2>High Scores</h2>
+      <ol>
+        lissst
+      </ol>
+    </section>
+
+    <script src="assets/js/script.js"></script>
   </body>
 </html>

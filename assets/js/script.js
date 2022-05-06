@@ -48,18 +48,32 @@ function ReturnHome() {
 //add restart button to high score display
 
 // High score submit
+if (storedscore === null) {
+  var highscoreboard = [["java", 0]];
+  var highscoreliststring = JSON.stringify(highscoreboard);
+  localStorage.setItem("storedhsl", highscoreliststring);
+}
+var storedscore = localStorage.getItem("storedhsl");
+highscoreboard = JSON.parse(storedscore);
+console.log("highscoreboard");
+console.log(highscoreboard);
 
 function SubmitScore() {
-  var storedscore = localStorage.getItem("storedhsl");
-  highscoreboard = JSON.parse(storedscore);
+  storedscore;
+  highscoreboard;
   var initials = initialsinput.value;
   var scoreentry = [];
   scoreentry.push(initials, plscore);
   highscoreboard.push(scoreentry);
   highscoreboard.sort((a, b) => b[1] - a[1]);
-  var highscoreliststring = JSON.stringify(highscoreboard);
+  highscoreliststring = JSON.stringify(highscoreboard);
   localStorage.setItem("storedhsl", highscoreliststring);
   // Show "Submitted", disable input and submit.
+  initialsinput.classList.add("hidden");
+  submitbtn.classList.add("hidden");
+  var submitmessage = document.createElement("p");
+  submitmessage.innerHTML = "Success!";
+  scorepage.appendChild(submitmessage);
 }
 
 // Show High Score page
@@ -70,13 +84,17 @@ function DisplayScores() {
   highscores.classList.remove("hidden");
   scorepage.classList.add("hidden");
   homebtn.classList.remove("hidden");
-  var storedscore = localStorage.getItem("storedhsl");
-  highscoreboard = JSON.parse(storedscore);
-  console.log(highscoreboard);
+  // var storedscore = localStorage.getItem("storedhsl");
 
   for (let i = 0; i < 10; i++) {
     var listEl = document.createElement("li");
+    console.log(highscoreboard[i]);
+    if (highscoreboard[i] == undefined) {
+      listEl.innerHTML = "No Score";
+      highscorelistEl.appendChild(listEl);
+    }
     listEl.innerHTML = highscoreboard[i];
+    console.log(highscoreboard[i]);
     highscorelistEl.appendChild(listEl);
   }
 }

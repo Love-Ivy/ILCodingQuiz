@@ -37,6 +37,7 @@ for (let i = 0; i < answers.length; i++) {
 // Back to Start Page
 function ReturnHome() {
   StopTime();
+  clock.textContent = "Time remaining: 60 seconds";
   startpage.classList.remove("hidden");
   questions[currentpage].classList.add("hidden");
   highscores.classList.add("hidden");
@@ -44,29 +45,21 @@ function ReturnHome() {
   homebtn.classList.add("hidden");
 }
 
+//add restart button to high score display
+
 // High score submit
-var highscorelist = [
-  ["yuri", 40],
-  ["yuri", 34],
-  ["yuri", 32],
-  ["yuri", 30],
-  ["yuri", 21],
-  ["yuri", 20],
-  ["yuri", 16],
-  ["yuri", 10],
-  ["yuri", 2],
-  ["yuri", 1],
-];
 
 function SubmitScore() {
+  var storedscore = localStorage.getItem("storedhsl");
+  highscoreboard = JSON.parse(storedscore);
   var initials = initialsinput.value;
   var scoreentry = [];
   scoreentry.push(initials, plscore);
-  console.log(scoreentry);
-  highscorelist.push(scoreentry);
-  console.log(highscorelist);
-  var highscoreliststring = JSON.stringify(highscorelist);
+  highscoreboard.push(scoreentry);
+  highscoreboard.sort((a, b) => b[1] - a[1]);
+  var highscoreliststring = JSON.stringify(highscoreboard);
   localStorage.setItem("storedhsl", highscoreliststring);
+  // Show "Submitted", disable input and submit.
 }
 
 // Show High Score page
@@ -79,7 +72,6 @@ function DisplayScores() {
   homebtn.classList.remove("hidden");
   var storedscore = localStorage.getItem("storedhsl");
   highscoreboard = JSON.parse(storedscore);
-  highscoreboard.sort((a, b) => b[1] - a[1]);
   console.log(highscoreboard);
 
   for (let i = 0; i < 10; i++) {

@@ -20,7 +20,8 @@ p {
 header {
   display: flex;
   justify-content: space-between;
-  border-bottom: 5px solid #121629;
+  border-bottom: 2px solid #eebbc3;
+  cursor: default;
 }
 
 section {
@@ -30,8 +31,8 @@ section {
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
-  margin: 20px;
-  padding: 100px;
+  /* margin: 20px;
+  padding: 100px; */
 }
 
 button {
@@ -39,6 +40,20 @@ button {
   color: #232946;
   font-weight: bold;
 }
+
+#homebtn {
+  position: relative;
+  top: 30px;
+}
+
+figure .grade {
+  position: relative;
+  bottom: 30px;
+  border-top: 1px solid #b8c1ec;
+  color: #b8c1ec;
+  text-align: center;
+}
+
 .questionPage {
   display: flex;
   flex-wrap: wrap;
@@ -49,6 +64,11 @@ button {
   width: 200px;
   margin: 5px;
   align-self: center;
+}
+
+#highscorelist {
+  display: flex;
+  flex-flow: column wrap;
 }
 
 .hidden {

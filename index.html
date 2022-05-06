@@ -11,8 +11,9 @@
     <!-- View highscores, countdown timer in header -->
     <header>
       <p id="viewhighscores">View Highscores</p>
-      <p>Time remaining:</p>
+      <p id="clock"></p>
     </header>
+
     <!-- Title page and Instructions for quiz. -->
     <section id="startpage">
       <h1>Coding Quiz!</h1>
@@ -63,7 +64,7 @@
 
     <section class="questionPage hidden" id="Page4">
       <h2 class="question">
-        A very useful toolused during development and debugging for printing
+        A very useful tool used during development and debugging for printing
         content to the debugger is:
       </h2>
       <button class="answer">JavaScript</button>
@@ -74,27 +75,29 @@
 
     <section class="hidden" id="scorePage">
       <h2>Finished!</h2>
-      <!-- Final score -->
+      <p id="timeremaining"></p>
+      <p id="finalscore"></p>
       <label for="initialsinput">Enter initials: </label>
-      <input type="text" id="initialsinput" name="initialsinput" />
+      <input
+        type="text"
+        maxlength="10"
+        id="initialsinput"
+        name="initialsinput"
+      />
       <button id="submit">Submit</button>
     </section>
 
     <section class="hidden" id="highscores">
       <h2>High Scores</h2>
-      <ol>
-        lissst
-      </ol>
+      <ol id="highscorelist"></ol>
     </section>
 
-    <figure class="grade" id="correctanswer">
-      <h3>Correct!</h3>
-    </figure>
-    <figure class="hidden grade" id="wronganswer">
-      <h3>Wrong!</h3>
-    </figure>
+    <button class="hidden" id="homebtn">Back to Start</button>
 
-    <button id="homebtn">Back to Start</button>
-    <script src="assets/js/script.js"></script>
+    <figure>
+      <h3 class="hidden grade" id="correctanswer">Correct!</h3>
+      <h3 class="hidden grade" id="wronganswer">Wrong!</h3>
+    </figure>
   </body>
+  <script src="assets/js/script.js"></script>
 </html>

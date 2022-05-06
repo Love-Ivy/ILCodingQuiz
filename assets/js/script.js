@@ -34,8 +34,30 @@ for (let i = 0; i < answers.length; i++) {
   answers[i].addEventListener("click", AnswerClick);
 }
 
-// High scores
-var highscorelist = [];
+// Back to Start Page
+function ReturnHome() {
+  StopTime();
+  startpage.classList.remove("hidden");
+  questions[currentpage].classList.add("hidden");
+  highscores.classList.add("hidden");
+  scorepage.classList.add("hidden");
+  homebtn.classList.add("hidden");
+}
+
+// High score submit
+var highscorelist = [
+  ["yuri", 40],
+  ["yuri", 34],
+  ["yuri", 32],
+  ["yuri", 30],
+  ["yuri", 21],
+  ["yuri", 20],
+  ["yuri", 16],
+  ["yuri", 10],
+  ["yuri", 2],
+  ["yuri", 1],
+];
+
 function SubmitScore() {
   var initials = initialsinput.value;
   var scoreentry = [];
@@ -47,18 +69,9 @@ function SubmitScore() {
   localStorage.setItem("storedhsl", highscoreliststring);
 }
 
-// Back to Start Page
-function ReturnHome() {
-  StopTime();
-  startpage.classList.remove("hidden");
-  questions[currentpage].classList.add("hidden");
-  highscores.classList.add("hidden");
-  scorepage.classList.add("hidden");
-  homebtn.classList.add("hidden");
-}
-
 // Show High Score page
 function DisplayScores() {
+  highscorelistEl.innerHTML = "";
   questions[currentpage].classList.add("hidden");
   startpage.classList.add("hidden");
   highscores.classList.remove("hidden");
@@ -66,11 +79,10 @@ function DisplayScores() {
   homebtn.classList.remove("hidden");
   var storedscore = localStorage.getItem("storedhsl");
   highscoreboard = JSON.parse(storedscore);
-  console.log(highscoreboard);
   highscoreboard.sort((a, b) => b[1] - a[1]);
   console.log(highscoreboard);
 
-  for (let i = 0; i < highscoreboard.length; i++) {
+  for (let i = 0; i < 10; i++) {
     var listEl = document.createElement("li");
     listEl.innerHTML = highscoreboard[i];
     highscorelistEl.appendChild(listEl);

@@ -173,7 +173,9 @@ function StartTime() {
 function StopTime() {
   // console.log("stop");
   plscore = countdown;
+  clock.textContent = "Time remaining: " + countdown + " seconds";
   countdown = 61;
+  plscore = 0;
 }
 
 function WrongAnswer() {

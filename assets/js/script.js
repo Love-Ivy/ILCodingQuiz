@@ -166,6 +166,7 @@ var timer = setInterval(function SixtySeconds() {
 
 function StartTime() {
   // console.log("start");
+  plscore = 0;
   countdown = 60;
   timer;
 }
@@ -175,7 +176,6 @@ function StopTime() {
   plscore = countdown;
   clock.textContent = "Time remaining: " + countdown + " seconds";
   countdown = 61;
-  plscore = 0;
 }
 
 function WrongAnswer() {
